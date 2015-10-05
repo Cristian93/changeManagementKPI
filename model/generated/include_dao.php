@@ -1,0 +1,41 @@
+<?php
+	//include all DAO files
+	require_once('class/sql/Connection.class.php');
+	require_once('class/sql/ConnectionFactory.class.php');
+	require_once('class/sql/ConnectionProperty.class.php');
+	require_once('class/sql/QueryExecutor.class.php');
+	require_once('class/sql/Transaction.class.php');
+	require_once('class/sql/SqlQuery.class.php');
+	require_once('class/core/ArrayList.class.php');
+	require_once('class/dao/DAOFactory.class.php');
+ 	
+	require_once('class/dao/AlterationDAO.class.php');
+	require_once('class/dto/Alteration.class.php');
+	require_once('class/mysql/AlterationMySqlDAO.class.php');
+	require_once('class/mysql/ext/AlterationMySqlExtDAO.class.php');
+	require_once('class/dao/ApplicationorinfrastructureDAO.class.php');
+	require_once('class/dto/Applicationorinfrastructure.class.php');
+	require_once('class/mysql/ApplicationorinfrastructureMySqlDAO.class.php');
+	require_once('class/mysql/ext/ApplicationorinfrastructureMySqlExtDAO.class.php');
+	require_once('class/dao/BossDAO.class.php');
+	require_once('class/dto/Bos.class.php');
+	require_once('class/mysql/BossMySqlDAO.class.php');
+	require_once('class/mysql/ext/BossMySqlExtDAO.class.php');
+	require_once('class/dao/CoordinatorDAO.class.php');
+	require_once('class/dto/Coordinator.class.php');
+	require_once('class/mysql/CoordinatorMySqlDAO.class.php');
+	require_once('class/mysql/ext/CoordinatorMySqlExtDAO.class.php');
+	require_once('class/dao/DirectionitDAO.class.php');
+	require_once('class/dto/Directionit.class.php');
+	require_once('class/mysql/DirectionitMySqlDAO.class.php');
+	require_once('class/mysql/ext/DirectionitMySqlExtDAO.class.php');
+	require_once('class/dao/HeadshipitDAO.class.php');
+	require_once('class/dto/Headshipit.class.php');
+	require_once('class/mysql/HeadshipitMySqlDAO.class.php');
+	require_once('class/mysql/ext/HeadshipitMySqlExtDAO.class.php');
+	require_once('class/dao/ManagementitDAO.class.php');
+	require_once('class/dto/Managementit.class.php');
+	require_once('class/mysql/ManagementitMySqlDAO.class.php');
+	require_once('class/mysql/ext/ManagementitMySqlExtDAO.class.php');
+
+?>
