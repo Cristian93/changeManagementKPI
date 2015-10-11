@@ -3,7 +3,7 @@
  * Class that operate on table 'alteration'. Database Mysql.
  *
  * @author: http://phpdao.com
- * @date: 2015-10-05 03:55
+ * @date: 2015-10-10 17:21
  */
 class AlterationMySqlDAO implements AlterationDAO{
 
@@ -14,9 +14,9 @@ class AlterationMySqlDAO implements AlterationDAO{
 	 * @return Alteration 
 	 */
 	public function load($id){
-		$sql = 'SELECT * FROM alteration WHERE changeId = ?';
+		$sql = 'SELECT * FROM alteration WHERE changeIdSM = ?';
 		$sqlQuery = new SqlQuery($sql);
-		$sqlQuery->setNumber($id);
+		$sqlQuery->set($id);
 		return $this->getRow($sqlQuery);
 	}
 
@@ -44,10 +44,10 @@ class AlterationMySqlDAO implements AlterationDAO{
  	 * Delete record from table
  	 * @param alteration primary key
  	 */
-	public function delete($changeId){
-		$sql = 'DELETE FROM alteration WHERE changeId = ?';
+	public function delete($changeIdSM){
+		$sql = 'DELETE FROM alteration WHERE changeIdSM = ?';
 		$sqlQuery = new SqlQuery($sql);
-		$sqlQuery->setNumber($changeId);
+		$sqlQuery->set($changeIdSM);
 		return $this->executeUpdate($sqlQuery);
 	}
 	
@@ -57,10 +57,9 @@ class AlterationMySqlDAO implements AlterationDAO{
  	 * @param AlterationMySql alteration
  	 */
 	public function insert($alteration){
-		$sql = 'INSERT INTO alteration (changeIdSM, changeType, shortDescription, impact, affectation, scheduledStart, rollbackStart, rollbackEnd, scheduledEnd, stateExecution, stateChange, directionIT_directionITId, managementIT_managementITId, headshipIT_headshipITId, boss_bossId, coordinator_coordinatorId, applicationOrInfrastructure_applicationOrInfrastructureId) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
+		$sql = 'INSERT INTO alteration (changeType, shortDescription, impact, affectation, scheduledStart, rollbackStart, rollbackEnd, scheduledEnd, stateExecution, stateChange, directionIT_directionITId, managementIT_managementITId, headshipIT_headshipITId, boss_bossId, coordinator_coordinatorId, applicationOrInfrastructure_applicationOrInfrastructureId, changeManeger_idchangeManeger) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
 		$sqlQuery = new SqlQuery($sql);
 		
-		$sqlQuery->set($alteration->getChangeIdSM());
 		$sqlQuery->set($alteration->getChangeType());
 		$sqlQuery->set($alteration->getShortDescription());
 		$sqlQuery->set($alteration->getImpact());
@@ -77,9 +76,10 @@ class AlterationMySqlDAO implements AlterationDAO{
 		$sqlQuery->setNumber($alteration->getBossBossId());
 		$sqlQuery->setNumber($alteration->getCoordinatorCoordinatorId());
 		$sqlQuery->setNumber($alteration->getApplicationOrInfrastructureApplicationOrInfrastructureId());
+		$sqlQuery->setNumber($alteration->getChangeManegerIdchangeManeger());
 
 		$id = $this->executeInsert($sqlQuery);	
-		$alteration->setChangeId($id);
+		$alteration->setChangeIdSM($id);
 		return $id;
 	}
     
@@ -89,11 +89,10 @@ class AlterationMySqlDAO implements AlterationDAO{
  	 * @param AlterationMySql alteration
  	 */
 	public function insertWithId($alteration){
-		$sql = 'INSERT INTO alteration (changeId, changeIdSM, changeType, shortDescription, impact, affectation, scheduledStart, rollbackStart, rollbackEnd, scheduledEnd, stateExecution, stateChange, directionIT_directionITId, managementIT_managementITId, headshipIT_headshipITId, boss_bossId, coordinator_coordinatorId, applicationOrInfrastructure_applicationOrInfrastructureId) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
+		$sql = 'INSERT INTO alteration (changeIdSM, changeType, shortDescription, impact, affectation, scheduledStart, rollbackStart, rollbackEnd, scheduledEnd, stateExecution, stateChange, directionIT_directionITId, managementIT_managementITId, headshipIT_headshipITId, boss_bossId, coordinator_coordinatorId, applicationOrInfrastructure_applicationOrInfrastructureId, changeManeger_idchangeManeger) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
 		$sqlQuery = new SqlQuery($sql);
-		$sqlQuery->setNumber($alteration->getChangeId());
+		$sqlQuery->setNumber($alteration->getChangeIdSM());
 		
-		$sqlQuery->set($alteration->getChangeIdSM());
 		$sqlQuery->set($alteration->getChangeType());
 		$sqlQuery->set($alteration->getShortDescription());
 		$sqlQuery->set($alteration->getImpact());
@@ -110,6 +109,7 @@ class AlterationMySqlDAO implements AlterationDAO{
 		$sqlQuery->setNumber($alteration->getBossBossId());
 		$sqlQuery->setNumber($alteration->getCoordinatorCoordinatorId());
 		$sqlQuery->setNumber($alteration->getApplicationOrInfrastructureApplicationOrInfrastructureId());
+		$sqlQuery->setNumber($alteration->getChangeManegerIdchangeManeger());
 
 		$id = $this->executeInsert($sqlQuery);	
 		return $id;
@@ -121,10 +121,9 @@ class AlterationMySqlDAO implements AlterationDAO{
  	 * @param AlterationMySql alteration
  	 */
 	public function update($alteration){
-		$sql = 'UPDATE alteration SET changeIdSM = ?, changeType = ?, shortDescription = ?, impact = ?, affectation = ?, scheduledStart = ?, rollbackStart = ?, rollbackEnd = ?, scheduledEnd = ?, stateExecution = ?, stateChange = ?, directionIT_directionITId = ?, managementIT_managementITId = ?, headshipIT_headshipITId = ?, boss_bossId = ?, coordinator_coordinatorId = ?, applicationOrInfrastructure_applicationOrInfrastructureId = ? WHERE changeId = ?';
+		$sql = 'UPDATE alteration SET changeType = ?, shortDescription = ?, impact = ?, affectation = ?, scheduledStart = ?, rollbackStart = ?, rollbackEnd = ?, scheduledEnd = ?, stateExecution = ?, stateChange = ?, directionIT_directionITId = ?, managementIT_managementITId = ?, headshipIT_headshipITId = ?, boss_bossId = ?, coordinator_coordinatorId = ?, applicationOrInfrastructure_applicationOrInfrastructureId = ?, changeManeger_idchangeManeger = ? WHERE changeIdSM = ?';
 		$sqlQuery = new SqlQuery($sql);
 		
-		$sqlQuery->set($alteration->getChangeIdSM());
 		$sqlQuery->set($alteration->getChangeType());
 		$sqlQuery->set($alteration->getShortDescription());
 		$sqlQuery->set($alteration->getImpact());
@@ -141,8 +140,9 @@ class AlterationMySqlDAO implements AlterationDAO{
 		$sqlQuery->setNumber($alteration->getBossBossId());
 		$sqlQuery->setNumber($alteration->getCoordinatorCoordinatorId());
 		$sqlQuery->setNumber($alteration->getApplicationOrInfrastructureApplicationOrInfrastructureId());
+		$sqlQuery->setNumber($alteration->getChangeManegerIdchangeManeger());
 
-		$sqlQuery->setNumber($alteration->getChangeId());
+		$sqlQuery->set($alteration->getChangeIdSM());
 		return $this->executeUpdate($sqlQuery);
 	}
 
@@ -154,13 +154,6 @@ class AlterationMySqlDAO implements AlterationDAO{
 		$sqlQuery = new SqlQuery($sql);
 		return $this->executeUpdate($sqlQuery);
 	}
-
-  public function queryByChangeIdSM($value){
-    $sql = 'SELECT * FROM alteration WHERE changeIdSM = ?';
-    $sqlQuery = new SqlQuery($sql);
-    $sqlQuery->set($value);
-    return $this->getList($sqlQuery);
-  }
 
   public function queryByChangeType($value){
     $sql = 'SELECT * FROM alteration WHERE changeType = ?';
@@ -274,13 +267,13 @@ class AlterationMySqlDAO implements AlterationDAO{
     return $this->getList($sqlQuery);
   }
 
-
-  public function deleteByChangeIdSM($value){
-    $sql = 'DELETE FROM alteration WHERE changeIdSM = ?';
+  public function queryByChangeManegerIdchangeManeger($value){
+    $sql = 'SELECT * FROM alteration WHERE changeManeger_idchangeManeger = ?';
     $sqlQuery = new SqlQuery($sql);
-    $sqlQuery->set($value);
-    return $this->executeUpdate($sqlQuery);
+    $sqlQuery->setNumber($value);
+    return $this->getList($sqlQuery);
   }
+
 
   public function deleteByChangeType($value){
     $sql = 'DELETE FROM alteration WHERE changeType = ?';
@@ -394,6 +387,13 @@ class AlterationMySqlDAO implements AlterationDAO{
     return $this->executeUpdate($sqlQuery);
   }
 
+  public function deleteByChangeManegerIdchangeManeger($value){
+    $sql = 'DELETE FROM alteration WHERE changeManeger_idchangeManeger = ?';
+    $sqlQuery = new SqlQuery($sql);
+    $sqlQuery->setNumber($value);
+    return $this->executeUpdate($sqlQuery);
+  }
+
 
 	
 	/**
@@ -404,7 +404,6 @@ class AlterationMySqlDAO implements AlterationDAO{
 	protected function readRow($row){
 		$alteration = new Alteration();
 		
-		$alteration->setChangeId($row['changeId']);
 		$alteration->setChangeIdSM($row['changeIdSM']);
 		$alteration->setChangeType($row['changeType']);
 		$alteration->setShortDescription($row['shortDescription']);
@@ -422,6 +421,7 @@ class AlterationMySqlDAO implements AlterationDAO{
 		$alteration->setBossBossId($row['boss_bossId']);
 		$alteration->setCoordinatorCoordinatorId($row['coordinator_coordinatorId']);
 		$alteration->setApplicationOrInfrastructureApplicationOrInfrastructureId($row['applicationOrInfrastructure_applicationOrInfrastructureId']);
+		$alteration->setChangeManegerIdchangeManeger($row['changeManeger_idchangeManeger']);
 
 		return $alteration;
 	}

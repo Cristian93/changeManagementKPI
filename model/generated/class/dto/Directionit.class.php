@@ -3,7 +3,7 @@
  * Object represents table 'directionit'
  *
      * @author: http://phpdao.com
-     * @date: 2015-10-05 03:55	 
+     * @date: 2015-10-10 17:21	 
  */
 class Directionit{
 	private $directionITId;

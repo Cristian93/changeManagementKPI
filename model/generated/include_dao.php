@@ -21,6 +21,10 @@
 	require_once('class/dto/Bos.class.php');
 	require_once('class/mysql/BossMySqlDAO.class.php');
 	require_once('class/mysql/ext/BossMySqlExtDAO.class.php');
+	require_once('class/dao/ChangemanagerDAO.class.php');
+	require_once('class/dto/Changemanager.class.php');
+	require_once('class/mysql/ChangemanagerMySqlDAO.class.php');
+	require_once('class/mysql/ext/ChangemanagerMySqlExtDAO.class.php');
 	require_once('class/dao/CoordinatorDAO.class.php');
 	require_once('class/dto/Coordinator.class.php');
 	require_once('class/mysql/CoordinatorMySqlDAO.class.php');

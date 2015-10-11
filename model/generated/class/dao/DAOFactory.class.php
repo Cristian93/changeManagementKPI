@@ -29,6 +29,13 @@ class DAOFactory{
 	}
 
 	/**
+	 * @return ChangemanagerDAO
+	 */
+	public static function getChangemanagerDAO(){
+		return new ChangemanagerMySqlExtDAO();
+	}
+
+	/**
 	 * @return CoordinatorDAO
 	 */
 	public static function getCoordinatorDAO(){

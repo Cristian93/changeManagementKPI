@@ -3,10 +3,9 @@
  * Object represents table 'alteration'
  *
      * @author: http://phpdao.com
-     * @date: 2015-10-05 03:55	 
+     * @date: 2015-10-10 17:21	 
  */
 class Alteration{
-	private $changeId;
 	private $changeIdSM;
 	private $changeType;
 	private $shortDescription;
@@ -24,14 +23,7 @@ class Alteration{
 	private $bossBossId;
 	private $coordinatorCoordinatorId;
 	private $applicationOrInfrastructureApplicationOrInfrastructureId;
-
-	public function getChangeId() {
-		return $this->changeId;
-	}
-
-	public function setChangeId($changeId) {
-		$this->changeId = $changeId;
-	}
+	private $changeManegerIdchangeManeger;
 
 	public function getChangeIdSM() {
 		return $this->changeIdSM;
@@ -167,6 +159,14 @@ class Alteration{
 
 	public function setApplicationOrInfrastructureApplicationOrInfrastructureId($applicationOrInfrastructureApplicationOrInfrastructureId) {
 		$this->applicationOrInfrastructureApplicationOrInfrastructureId = $applicationOrInfrastructureApplicationOrInfrastructureId;
+	}
+
+	public function getChangeManegerIdchangeManeger() {
+		return $this->changeManegerIdchangeManeger;
+	}
+
+	public function setChangeManegerIdchangeManeger($changeManegerIdchangeManeger) {
+		$this->changeManegerIdchangeManeger = $changeManegerIdchangeManeger;
 	}
 
 }

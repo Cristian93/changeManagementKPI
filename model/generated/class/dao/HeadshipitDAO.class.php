@@ -3,7 +3,7 @@
  * Intreface DAO
  *
  * @author: http://phpdao.com
- * @date: 2015-10-05 03:55
+ * @date: 2015-10-10 17:21
  */
 interface HeadshipitDAO{
 

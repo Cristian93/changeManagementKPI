@@ -1,11 +1,11 @@
 <?php
 /**
- * Class that operate on table 'alteration'. Database Mysql.
+ * Class that operate on table 'changemanager'. Database Mysql.
  *
  * @author: http://phpdao.com
  * @date: 2015-10-10 17:21
  */
-class AlterationMySqlExtDAO extends AlterationMySqlDAO{
+class ChangemanagerMySqlExtDAO extends ChangemanagerMySqlDAO{
     function setSQL($sql){
         $sqlQuery = new SqlQuery($sql);
         return $this->getList($sqlQuery);

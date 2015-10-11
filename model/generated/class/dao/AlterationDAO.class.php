@@ -3,7 +3,7 @@
  * Intreface DAO
  *
  * @author: http://phpdao.com
- * @date: 2015-10-05 03:55
+ * @date: 2015-10-10 17:21
  */
 interface AlterationDAO{
 
@@ -30,7 +30,7 @@ interface AlterationDAO{
  	 * Delete record from table
  	 * @param alteration primary key
  	 */
-	public function delete($changeId);
+	public function delete($changeIdSM);
 	
 	/**
  	 * Insert record to table
@@ -50,8 +50,6 @@ interface AlterationDAO{
 	 * Delete all rows
 	 */
 	public function clean();
-
-	public function queryByChangeIdSM($value);
 
 	public function queryByChangeType($value);
 
@@ -85,8 +83,8 @@ interface AlterationDAO{
 
 	public function queryByApplicationOrInfrastructureApplicationOrInfrastructureId($value);
 
+	public function queryByChangeManegerIdchangeManeger($value);
 
-	public function deleteByChangeIdSM($value);
 
 	public function deleteByChangeType($value);
 
@@ -119,6 +117,8 @@ interface AlterationDAO{
 	public function deleteByCoordinatorCoordinatorId($value);
 
 	public function deleteByApplicationOrInfrastructureApplicationOrInfrastructureId($value);
+
+	public function deleteByChangeManegerIdchangeManeger($value);
 
 
 }
