@@ -51,9 +51,9 @@ class SqlQuery{
 			$this->params[$this->idx++] = "null";
 			return;
 		}
-		if(!is_numeric($value)){
-			throw new Exception($value.' is not a number');
-		}
+		//if(!is_numeric($value)){
+			//throw new Exception($value.' is not a number');
+		//}
 		$this->params[$this->idx++] = "'".$value."'";
 	}
 

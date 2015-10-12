@@ -130,7 +130,7 @@
                             </div>
                             
                              <div class="form-group">
-                                <select type="text" name="changeState" placeholder="Change state..."  id="changeState" class="form-control">
+                                <select type="text" name="stateExecution" placeholder="Change state..."  id="stateExecution" class="form-control">
                                     <option>Successful</option>
                                     <option>Rollback</option>
                                     <option>Canceled</option>

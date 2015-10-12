@@ -3,7 +3,7 @@
  * Class that operate on table 'managementit'. Database Mysql.
  *
  * @author: http://phpdao.com
- * @date: 2015-10-10 17:21
+ * @date: 2015-10-12 17:51
  */
 class ManagementitMySqlDAO implements ManagementitDAO{
 

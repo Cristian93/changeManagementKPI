@@ -3,7 +3,7 @@
  * Intreface DAO
  *
  * @author: http://phpdao.com
- * @date: 2015-10-10 17:21
+ * @date: 2015-10-12 17:51
  */
 interface AlterationDAO{
 
@@ -83,7 +83,7 @@ interface AlterationDAO{
 
 	public function queryByApplicationOrInfrastructureApplicationOrInfrastructureId($value);
 
-	public function queryByChangeManegerIdchangeManeger($value);
+	public function queryByChangeManagerIdchangeManager($value);
 
 
 	public function deleteByChangeType($value);
@@ -118,7 +118,7 @@ interface AlterationDAO{
 
 	public function deleteByApplicationOrInfrastructureApplicationOrInfrastructureId($value);
 
-	public function deleteByChangeManegerIdchangeManeger($value);
+	public function deleteByChangeManagerIdchangeManager($value);
 
 
 }

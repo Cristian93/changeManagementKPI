@@ -3,7 +3,7 @@
  * Object represents table 'alteration'
  *
      * @author: http://phpdao.com
-     * @date: 2015-10-10 17:21	 
+     * @date: 2015-10-12 17:51	 
  */
 class Alteration{
 	private $changeIdSM;
@@ -23,7 +23,7 @@ class Alteration{
 	private $bossBossId;
 	private $coordinatorCoordinatorId;
 	private $applicationOrInfrastructureApplicationOrInfrastructureId;
-	private $changeManegerIdchangeManeger;
+	private $changeManagerIdchangeManager;
 
 	public function getChangeIdSM() {
 		return $this->changeIdSM;
@@ -161,12 +161,12 @@ class Alteration{
 		$this->applicationOrInfrastructureApplicationOrInfrastructureId = $applicationOrInfrastructureApplicationOrInfrastructureId;
 	}
 
-	public function getChangeManegerIdchangeManeger() {
-		return $this->changeManegerIdchangeManeger;
+	public function getChangeManagerIdchangeManager() {
+		return $this->changeManagerIdchangeManager;
 	}
 
-	public function setChangeManegerIdchangeManeger($changeManegerIdchangeManeger) {
-		$this->changeManegerIdchangeManeger = $changeManegerIdchangeManeger;
+	public function setChangeManagerIdchangeManager($changeManagerIdchangeManager) {
+		$this->changeManagerIdchangeManager = $changeManagerIdchangeManager;
 	}
 
 }
