@@ -19,7 +19,7 @@
         <!-- Favicon and touch icons -->
         <link rel="shortcut icon" href="controller/images/ico/favicon.png">
     </head>
-    <body>
+    <body onload="updateSemaphores();">
         <!-- Content -->
         <div class="top-content">
             <div class="inner-bg">
@@ -35,17 +35,20 @@
                                 <p>Current state of performance indicators. Technological Change Management Process.</p>
                             </div>
                             
-                            <div class="row">
+                            <div id="semaphores" class="row" >
                                 <div class="col-lg-4">
-                                    <img src="controller/images/semaphores/semaphoreOff.PNG" alt="..." class="img-circle">
+                                    <img id="rs" src="controller/images/semaphores/semaphoreOff.PNG" alt="..." class="img-circle">
+                                    <div id="percentageRS"></div>
                                 </div>
                                 
                                 <div class="col-lg-4">
-                                    <img src="controller/images/semaphores/semaphoreOff.PNG" alt="..." class="img-circle">
+                                    <img id="es" src="controller/images/semaphores/semaphoreOff.PNG" alt="..." class="img-circle">
+                                    <div id="percentageES"></div>
                                 </div>
                                 
                                 <div class="col-lg-4">
-                                    <img src="controller/images/semaphores/semaphoreOff.PNG" alt="..." class="img-circle">
+                                    <img id="eri" src="controller/images/semaphores/semaphoreOff.PNG" alt="..." class="img-circle">
+                                    <div id="percentageERI"></div>
                                 </div>
                             </div>
 
@@ -76,7 +79,7 @@
                         <form role="form" action="controller/php/createChange.php" method="post" class="registration-form">
 
                             <div class="form-group">
-                                <input type="text" name="changeId" placeholder="Change Id..." class="form-control" id="changeId">
+                                <input type="text" name="changeId" placeholder="Change Id..." class="form-control" id="changeId" pattern="^C[0-9]{5,}$">
                             </div>
                             
                             <div class="form-group">
