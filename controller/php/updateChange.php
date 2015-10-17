@@ -1,13 +1,5 @@
 <?php
 include '../../model/generated/include_dao.php';
-
-$changeList=  DAOFactory::getAlterationDAO()->load($_POST["changeId"]);
-
-if (count($changeList)>=1) {
-echo  "<script>alert ('".$_POST["changeId"]." change is already registered.'); window.location='../../index.php'; </script>";
-}
-
-else{
 $appList=  DAOFactory::getApplicationorinfrastructureDAO()->queryByApplicationOrInfrastructureName($_POST["applicationOrInfrastructure"]);
 $coordinatorList=  DAOFactory::getCoordinatorDAO()->queryByCoordinatorName($_POST["coordinator"]);
 $bossList=  DAOFactory::getBossDAO()->queryByBossName($_POST["boss"]);
@@ -35,14 +27,18 @@ $change->setDirectionITDirectionITId($directionList[0]->getDirectionITId());
 $change->setStateChange(1);
 $change->setChangeManagerIdchangeManager(1);
 
-DAOFactory::getAlterationDAO()->insertWithId($change);
+DAOFactory::getAlterationDAO()->update($change);
+
 unset($change);
-echo  "<script>alert ('".$_POST["changeId"]." change was registered successfully.'); window.location='../../index.php';</script>";
-}
+
+echo  "<script>alert ('".$_POST["changeId"]." change was updated successfully .'); window.location='../../index.php';</script>";
 
 
 
 
 
-    
+
+
+
+
 

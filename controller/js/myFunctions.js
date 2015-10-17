@@ -2,7 +2,7 @@ $(document).ready(function () {
 
 });
 
-$("#changeId").blur(function(){ 
+$("#changeId").blur(function () {
     $("#changeId").val($("#changeId").val().toUpperCase());
 });
 
@@ -23,8 +23,8 @@ $(function () {
     $("#scheduledEndDate").datepicker({dateFormat: 'yy-mm-dd'});
 });
 
-$('#coordinator').on('change', function() {
-   $.ajax({
+$('#coordinator').on('change', function () {
+    $.ajax({
         url: "controller/php/request.php",
         dataType: "json",
         type: "POST",
@@ -32,12 +32,10 @@ $('#coordinator').on('change', function() {
             tipo: "searchBoss",
             val1: $("#coordinator").val()
         },
-        
         beforeSend: function (xhr) {
         },
-        
         success: function (json) {
-          
+
             $("#boss").val(json.boss);
             $("#headship").val(json.headship);
             $("#management").val(json.management);
@@ -64,20 +62,15 @@ function updateSemaphores() {
         success: function (json) {
             stateRSandES("rs", json.rs);
             $("#percentageRS").html("<h1><strong>" + json.rs + " %</strong></h1>");
-            
+
             stateRSandES("es", json.es);
             $("#percentageES").html("<h1><strong>" + json.es + " %</strong></h1>");
-            
-            stateERI("eri",json.eri);
-            $("#percentageERI").html("<h1><strong>" + json.eri + " %</strong></h1>");
 
-        
- 
+            stateERI("eri", json.eri);
+            $("#percentageERI").html("<h1><strong>" + json.eri + " %</strong></h1>");
         },
-        
         error: function (jqXHR, textStatus, errorThrown) {
         },
-        
         complete: function (jqXHR, textStatus) {
         }
     });
@@ -85,13 +78,13 @@ function updateSemaphores() {
 
 function stateRSandES(id, percentage) {
     if (percentage >= 95) {
-        $("#"+id).attr("src", "controller/images/semaphores/semaphoreOnGreen.PNG");
+        $("#" + id).attr("src", "controller/images/semaphores/semaphoreOnGreen.PNG");
     }
     if (percentage >= 80 && percentage <= 94) {
-        $("#"+id).attr("src", "controller/images/semaphores/semaphoreOnYellow.PNG");
+        $("#" + id).attr("src", "controller/images/semaphores/semaphoreOnYellow.PNG");
     }
     if (percentage < 80) {
-        $("#"+id).attr("src", "controller/images/semaphores/semaphoreOnRed.PNG");
+        $("#" + id).attr("src", "controller/images/semaphores/semaphoreOnRed.PNG");
     }
 }
 
@@ -99,14 +92,130 @@ function stateRSandES(id, percentage) {
 
 function stateERI(id, percentage) {
     if (percentage <= 5) {
-        $("#"+id).attr("src", "controller/images/semaphores/semaphoreOnGreen.PNG");
+        $("#" + id).attr("src", "controller/images/semaphores/semaphoreOnGreen.PNG");
     }
     if (percentage >= 6 && percentage <= 15) {
-        $("#"+id).attr("src", "controller/images/semaphores/semaphoreOnYellow.PNG");
+        $("#" + id).attr("src", "controller/images/semaphores/semaphoreOnYellow.PNG");
     }
     if (percentage > 15) {
-        $("#"+id).attr("src", "controller/images/semaphores/semaphoreOnRed.PNG");
+        $("#" + id).attr("src", "controller/images/semaphores/semaphoreOnRed.PNG");
     }
 }
 
 
+
+$('#changeIdRUD').on('change', function () {
+
+    $.ajax({
+        url: "controller/php/request.php",
+        dataType: "json",
+        type: "POST",
+        data: {
+            tipo: "searchChange",
+            val2: $("#changeIdRUD").val()
+        },
+        beforeSend: function (xhr) {
+        },
+        success: function (json) {
+
+
+            $("#typeRUD").val(json.type);
+            $("#shortDescriptionRUD").val(json.shortDescription);
+            $("#impactRUD").val(json.impact);
+            $("#affectationRUD").val(json.affectation);
+            $("#scheduledStartDateRUD").val(json.scheduledStartDate);
+            $("#scheduledStartTimeRUD").val(json.scheduledStartTime);
+            $("#rollbackStartDateRUD").val(json.rollbackStartDate);
+            $("#rollbackStartTimeRUD").val(json.rollbackStartTime);
+            $("#rollbackEndDateRUD").val(json.rollbackEndDate);
+            $("#rollbackEndTimeRUD").val(json.rollbackEndTime);
+            $("#scheduledEndDateRUD").val(json.scheduledEndDate);
+            $("#scheduledEndTimeRUD").val(json.scheduledEndTime);
+            $("#stateExecutionRUD").val(json.stateExecution);
+            $("#applicationOrInfrastructureRUD").val(json.applicationOrInfrastructure);
+            $("#coordinatorRUD").val(json.coordinator);
+            $.ajax({
+                url: "controller/php/request.php",
+                dataType: "json",
+                type: "POST",
+                data: {
+                    tipo: "searchBoss",
+                    val1: $("#coordinatorRUD").val()
+                },
+                beforeSend: function (xhr) {
+                },
+                success: function (json) {
+
+                    $("#bossRUD").val(json.boss);
+                    $("#headshipRUD").val(json.headship);
+                    $("#managementRUD").val(json.management);
+                    $("#directionRUD").val(json.direction);
+
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                },
+                complete: function (jqXHR, textStatus) {
+                }
+            });
+
+
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+        },
+        complete: function (jqXHR, textStatus) {
+        }
+    });
+});
+
+function updateOrDelete(destination) {
+
+    document.getElementById("form1").action = destination;
+    document.getElementById("form1").submit();
+}
+
+
+
+
+$('#coordinatorRUD').on('change', function () {
+    $.ajax({
+        url: "controller/php/request.php",
+        dataType: "json",
+        type: "POST",
+        data: {
+            tipo: "searchBoss",
+            val1: $("#coordinatorRUD").val()
+        },
+        beforeSend: function (xhr) {
+        },
+        success: function (json) {
+
+            $("#bossRUD").val(json.boss);
+            $("#headshipRUD").val(json.headship);
+            $("#managementRUD").val(json.management);
+            $("#directionRUD").val(json.direction);
+
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+        },
+        complete: function (jqXHR, textStatus) {
+        }
+    });
+});
+
+
+
+$(function () {
+    $("#scheduledStartDateRUD").datepicker({dateFormat: 'yy-mm-dd'});
+});
+
+$(function () {
+    $("#rollbackStartDateRUD").datepicker({dateFormat: 'yy-mm-dd'});
+});
+
+$(function () {
+    $("#rollbackEndDateRUD").datepicker({dateFormat: 'yy-mm-dd'});
+});
+
+$(function () {
+    $("#scheduledEndDateRUD").datepicker({dateFormat: 'yy-mm-dd'});
+});
