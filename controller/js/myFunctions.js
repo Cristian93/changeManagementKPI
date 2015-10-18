@@ -175,7 +175,7 @@ $('#changeIdRUD').on('change', function () {
 function updateOrDelete(destination) {
 
     document.getElementById("form1").action = destination;
-    document.getElementById("form1").submit();
+    document.getElementById("form1").submit(animationPrefilters);
 }
 
 

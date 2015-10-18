@@ -269,7 +269,7 @@ CF;
                                 $coordinatorList = DAOFactory::getCoordinatorDAO()->queryAll();
                                 $contentCoordinator = <<<CF
                                         
-                            <select type='text' name='coordinator' placeholder='Coordinator...' id='coordinatorRUD' class='form-control' required>
+                            <select type='text' name='coordinator' placeholder='Coordinator...' id='coordinatorRUD' class='form-control'>
 CF;
                                 echo $contentCoordinator;
                                 foreach ($coordinatorList as $coordinator) {
