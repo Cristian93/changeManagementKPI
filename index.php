@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -45,9 +48,14 @@
                                 </div>
                             </div>
                             <div class="top-big-link">
-                                <a class="btn btn-link-1 launch-modal" href="#" data-modal-id="modal-register"> <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Register change</a>
-                                <a class="btn btn-link-1 launch-modal" href="#" data-modal-id="modal-rud"> <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Consult Change</a>
-                                <a class="btn btn-link-1" href="detailChanges.php"> <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span> Detail Changes</a>
+                                <a <?php if(isset($_SESSION["user"])){echo "hidden";} ?> class="btn-sm launch-modal btn-info" href="#" data-modal-id="modal-logIn"> <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> Log in</a>
+                                <a <?php if(isset($_SESSION["user"])){echo "";} else{echo "hidden";} ?> class="btn-sm btn-danger" href="controller/php/logOut.php" > <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Log out</a>
+                                <a <?php if(isset($_SESSION["user"])){echo "";} else{echo "hidden";} ?> class=" btn-lg launch-modal btn-success" href="#" data-modal-id="modal-register"> <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Register change</a>
+                                <a <?php if(isset($_SESSION["user"])){echo "";} else{echo "hidden";} ?> class="btn-lg launch-modal btn-success" href="#" data-modal-id="modal-rud"> <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Consult Change</a>
+                               
+                                
+                                
+                                <a class="btn-lg  btn-success" href="detailChanges.php"> <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span> Detail Changes</a>
                             </div>
                             <div id="foot">
                                 <p>Developed for<a href="http://www.telefonica.co/" target="_blank"> Telefonica</a>, By Cristian David Franco Garcia.
@@ -393,6 +401,29 @@ CF;
                         </thead>
                     </table>
                 </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="modal-logIn" tabindex="-1" role="dialog" aria-labelledby="modal-register-label" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                    </button>
+                    <h3 class="modal-title" id="modal-register-label">Log in</h3>
+                </div>
+                <form  role="form"  method="post" action="controller/php/logIn.php" class="registration-form">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <input type="email" name="user" placeholder="Email address..." class="form-control" id="user" required="">
+                            </div>
+                    <div class="form-group">
+                        <input type="password" name="password" placeholder="Password..." class="form-control" id="password" required="">
+                            </div>
+                   <button type="submit" class="btn"><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> Log in</button>
+                </div>
+                </form>
             </div>
         </div>
     </div>
