@@ -2,6 +2,7 @@ $(document).ready(function () {
 
 });
 
+
 $("#changeId").blur(function () {
     $("#changeId").val($("#changeId").val().toUpperCase());
 });
@@ -68,6 +69,10 @@ function updateSemaphores() {
 
             stateERI("eri", json.eri);
             $("#percentageERI").html("<h1><strong>" + json.eri + " %</strong></h1>");
+            
+            $("#equationrs").html("$$R_s =" + "\\"+ "left(1-{"+json.cr +"+"+json.ci+ "\\"+"over"+json.cs+"}"+"\\"+"right)x100="+json.rs+ "\\%$$");
+            $("#equationes").html("$$E_s =" + "\\"+ "left({"+json.cs + "\\"+"over"+json.ce+"}"+"\\"+"right)x100="+json.es+ "\\%$$");
+            $("#equationeri").html("$$E_ri =" + "\\"+ "left({"+json.cr +"+"+json.ci+ "\\"+"over"+json.ce+"}"+"\\"+"right)x100="+json.eri+ "\\%$$");
         },
         error: function (jqXHR, textStatus, errorThrown) {
         },
@@ -219,3 +224,7 @@ $(function () {
 $(function () {
     $("#scheduledEndDateRUD").datepicker({dateFormat: 'yy-mm-dd'});
 });
+
+
+
+        

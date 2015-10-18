@@ -1,6 +1,31 @@
 .half { 
- float: left;
- width: 50%;
- margin-bottom: 15px;
+    float: left;
+    width: 50%;
+    margin-bottom: 15px;
+}
+#updatebtn, #deletebtn {
+    margin-left: 98px  ;
+}
+#detailChanges{
+    color: black;
+}
+.semaphoreRed{
+    background-color: red;
+    color: black;
+    width: 33%;
+}
+.semaphoreYellow{
+    background-color: yellow;
+    color: black;
+    width: 33%;
+}
+.semaphoreGreen{
+    background-color: green;
+    color: black;
+    width: 33%;
+}
+
+.mousePointer{
+    cursor: pointer;
 }
 
