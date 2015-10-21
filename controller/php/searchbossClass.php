@@ -7,7 +7,7 @@ class searchbossClass {
         foreach ($coordinatorList as $coordinator) {
         }
         $bossList = DAOFactory::getBossDAO()->load($coordinator->getBossBossId());
-        $headshipList=  DAOFactory::getHeadshipitDAO()->load($coordinator->getBossBossId());
+        $headshipList=  DAOFactory::getHeadshipitDAO()->load($bossList->getHeadshipITHeadshipITId());
         $managememtList= DAOFactory::getManagementitDAO()->load($headshipList->getManagementITManagementITId());
         $directionList= DAOFactory::getDirectionitDAO()->load($managememtList->getDirectionITDirectionITId());
         echo json_encode(array("boss" => $bossList->getBossName(), "headship"=>$headshipList->getHeadshipITName(), "management"=>$managememtList->getManagementITName(), "direction"=>$directionList->getDirectionITName()));

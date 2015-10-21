@@ -48,13 +48,24 @@ session_start();
                                 </div>
                             </div>
                             <div class="top-big-link">
-                                <a <?php if(isset($_SESSION["user"])){echo "hidden";} ?> class="btn-sm launch-modal btn-info" href="#" data-modal-id="modal-logIn"> <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> Log in</a>
-                                <a <?php if(isset($_SESSION["user"])){echo "";} else{echo "hidden";} ?> class="btn-sm btn-danger" href="controller/php/logOut.php" > <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Log out</a>
-                                <a <?php if(isset($_SESSION["user"])){echo "";} else{echo "hidden";} ?> class=" btn-lg launch-modal btn-success" href="#" data-modal-id="modal-register"> <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Register change</a>
-                                <a <?php if(isset($_SESSION["user"])){echo "";} else{echo "hidden";} ?> class="btn-lg launch-modal btn-success" href="#" data-modal-id="modal-rud"> <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Consult Change</a>
-                               
-                                
-                                
+                                <a <?php if (isset($_SESSION["user"])) {
+    echo "hidden";
+} ?> class="btn-sm launch-modal btn-info" href="#" data-modal-id="modal-logIn"> <span class="glyphicon glyphicon-user" aria-hidden="true"></span> Change Manager</a>
+                                <a <?php if (isset($_SESSION["user"])) {
+    echo "";
+} else {
+    echo "hidden";
+} ?> class="btn-sm btn-danger" href="controller/php/logOut.php" > <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Log out</a>
+                                <a <?php if (isset($_SESSION["user"])) {
+    echo "";
+} else {
+    echo "hidden";
+} ?> class=" btn-lg launch-modal btn-success" href="#" data-modal-id="modal-register"> <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Register change</a>
+                                <a <?php if (isset($_SESSION["user"])) {
+    echo "";
+} else {
+    echo "hidden";
+} ?> class="btn-lg launch-modal btn-success" href="#" data-modal-id="modal-rud"> <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search Change</a>
                                 <a class="btn-lg  btn-success" href="detailChanges.php"> <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span> Detail Changes</a>
                             </div>
                             <div id="foot">
@@ -324,6 +335,12 @@ CF;
                         <div>
                             $$R_s = \left(1-{c_r + c_i \over c_s}\right)x100$$
                         </div>
+                        <div>
+                            $$c_r = Rollback \space Changes$$
+                            $$c_i = Incident \space Changes$$
+                            $$c_s = Successful \space Changes$$
+                        </div>
+                        <br>
                         <div id="equationrs">
                         </div>
                     </div>
@@ -356,6 +373,11 @@ CF;
                     <div >
                         $$E_s = \left({c_s \over c_e}\right)x100$$
                     </div>
+                    <div>
+                        $$c_s = Successful \space Changes$$
+                        $$c_e = Executed \space Changes$$
+                    </div>
+                    <br>
                     <div id="equationes">
                     </div>
                 </div>
@@ -387,6 +409,12 @@ CF;
                     <div >
                         $$E_ri = \left({c_r + c_i \over c_e}\right)x100$$
                     </div>
+                    <div>
+                        $$c_r = Rollback \space Changes$$
+                        $$c_i = Incident \space Changes$$
+                        $$c_e = Executed \space Changes$$
+                    </div>
+                    <br>
                     <div id="equationeri">
                     </div>
                 </div>
@@ -414,15 +442,15 @@ CF;
                     <h3 class="modal-title" id="modal-register-label">Log in</h3>
                 </div>
                 <form  role="form"  method="post" action="controller/php/logIn.php" class="registration-form">
-                <div class="modal-body">
-                    <div class="form-group">
-                        <input type="email" name="user" placeholder="Email address..." class="form-control" id="user" required="">
-                            </div>
-                    <div class="form-group">
-                        <input type="password" name="password" placeholder="Password..." class="form-control" id="password" required="">
-                            </div>
-                   <button type="submit" class="btn"><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> Log in</button>
-                </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <input type="email" name="user" placeholder="Email address..." class="form-control" id="user" required="">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" name="password" placeholder="Password..." class="form-control" id="password" required="">
+                        </div>
+                        <button type="submit" class="btn"><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> Log in</button>
+                    </div>
                 </form>
             </div>
         </div>
