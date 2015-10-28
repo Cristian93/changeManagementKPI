@@ -1,0 +1,16 @@
+Cpanel URL: http://cpanel.byethost5.com/
+Cpanel Username: b5_16721707
+Cpanel Password: 2hx7q0pf
+
+FTP Server / FTP HostName: ftp.byethost5.com
+FTP Login / Username : b5_16721707
+FTP Password : 2hx7q0pf
+
+MySQL Database Name: MUST CREATE IN CPANEL
+MySQL Username : b5_16721707
+MySQL Password : 2hx7q0pf
+MySQL Server / MySQL Host Name: sql206.byethost5.com
+
+Your URL: http://changemanagement.byethost5.com or http://www.changemanagement.byethost5.com
+
+
